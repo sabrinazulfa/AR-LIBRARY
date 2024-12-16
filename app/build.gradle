@@ -1,0 +1,64 @@
+plugins {
+    id(libs.plugins.android-application)  // Plugin Android dari version catalog
+    id(libs.plugins.kotlin-android)  // Plugin Kotlin Android dari version catalog
+    id(libs.plugins.kotlin-compose)  // Plugin Kotlin Compose dari version catalog
+    id('com.google.gms.google-services')  // Plugin Firebase (Google services)
+}
+
+android {
+    namespace 'com.airlibrary'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.airlibrary"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(17)
+        }
+    }
+}
+
+dependencies {
+    // Firebase
+    implementation platform(libs.firebase.bom)  // Firebase BOM dari version catalog
+    implementation libs.firebase.auth  // Firebase Auth dari version catalog
+    implementation libs.firebase.firestore  // Firebase Firestore dari version catalog
+    implementation libs.firebase.storage  // Firebase Storage dari version catalog
+
+    // PDF Viewer
+    implementation 'com.github.barteksc:android-pdf-viewer:3.2.0-beta.1'
+
+    // Glide untuk loading gambar
+    implementation libs.glide  // Glide dari version catalog
+    annotationProcessor libs.glide.compiler  // Glide compiler dari version catalog
+
+    // AndroidX
+    implementation libs.androidx.appcompat  // AppCompat dari version catalog
+    implementation libs.google.material  // Material Design dari version catalog
+    implementation libs.androidx.constraintlayout  // ConstraintLayout dari version catalog
+
+    // Testing
+    testImplementation libs.junit  // JUnit dari version catalog
+    androidTestImplementation libs.androidx-junit  // AndroidX JUnit dari version catalog
+    androidTestImplementation libs.androidx.espresso-core  // Espresso Core dari version catalog
+}

@@ -1,0 +1,41 @@
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.5'
+
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+    versionCatalogs {
+        create("libs") {
+            version("java", "17")
+            version("gradle", "8.5")
+            version("junitVersion", "4.13.2")
+            
+            // Deklarasi library yang benar
+            library("material", "com.google.android.material:material:1.10.0")
+            
+            // Atau bisa juga menggunakan format seperti ini:
+            // library(
+            //     "material",
+            //     group = "com.google.android.material",
+            //     name = "material",
+            //     version = "1.10.0"
+            // )
+        }
+    }
+}
+
+// Task untuk membersihkan build dengan metode baru
+tasks.register("clean", Delete) {
+    delete rootProject.layout.buildDirectory
+}

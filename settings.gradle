@@ -1,0 +1,43 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        mavenCentral()
+        google()
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        mavenCentral()
+        google()
+    }
+    versionCatalogs {
+        create("libs") {
+            version("agp", "8.2.2")
+            version("googleServices", "4.4.2")
+            version("android-gradle-plugin", "8.0.0")
+            version("kotlin", "1.8.0")
+            version("coreKtx", "1.12.0")
+            version("junit", "4.13.2")
+            version("espressoCore", "3.6.1")
+            version("lifecycleRuntimeKtx", "2.7.0")
+            version("activityCompose", "1.8.2")
+            version("composeBom", "2024.04.01")
+
+            // Library definitions using version refs
+            library("androidx-core-ktx", "androidx.core", "core-ktx").versionRef("coreKtx")
+            library("google-services", "com.google.gms", "google-services").versionRef("googleServices")
+            library("android-gradle-plugin", "com.android.tools.build", "gradle").versionRef("agp")
+            library("junit", "junit", "junit").versionRef("junit")
+            library("androidx-junit", "androidx.test.ext", "junit").versionRef("junitVersion")
+            library("androidx-espresso-core", "androidx.test.espresso", "espresso-core").versionRef("espressoCore")
+            library("androidx-lifecycle-runtime-ktx", "androidx.lifecycle", "lifecycle-runtime-ktx").versionRef("lifecycleRuntimeKtx")
+            library("androidx-activity-compose", "androidx.activity", "activity-compose").versionRef("activityCompose")
+            library("androidx-compose-bom", "androidx.compose", "compose-bom").versionRef("composeBom")
+        }
+    }
+}
+
+rootProject.name = "AR-LIBRARY"
+include(":app")
