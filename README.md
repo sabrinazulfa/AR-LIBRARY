@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # AIR-LIBRARY
 
 ## Deskripsi Proyek
@@ -43,3 +44,6 @@ AIR-LIBRARY adalah aplikasi manajemen dokumen berbasis Android yang memungkinkan
 ## Catatan Pengembangan
 - Versi: 1.0.0
 - Terakhir Diperbarui: [15/12/2024]
+=======
+# AR-LIBRARY
+>>>>>>> 8a2241fb95aeab43daf93b3c2d234c41e0d0c455
