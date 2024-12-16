@@ -22,7 +22,11 @@ dependencyResolutionManagement {
             version("junitVersion", "4.13.2")
             
             // Deklarasi library yang benar
-            library("material", "com.google.android.material:material:1.10.0")
+            library("material") {
+                group = "com.google.android.material"
+                name = "material"
+                version = "1.10.0"
+            }
             
             // Atau bisa juga menggunakan format seperti ini:
             // library(
